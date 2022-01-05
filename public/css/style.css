@@ -1,0 +1,223 @@
+.registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    background-color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+.inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+}
+.card{
+    border:1px solid #333;
+    background-color:#f1f1f1;
+    border-radius:15px;
+    padding:8px;
+    align-content: center;
+}
+
+.card-img{
+    max-width:50%;
+    height:auto;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
+
+/*show.blade.php*/
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+html {
+    color: #222;
+    background-color: #efefef;
+    font-family: Verdana, sans-serif;
+}
+body {
+    padding: 1em;
+}
+
+dl {
+    border: 1px solid #bdc8ca;
+    background-color: #f7fafa;
+}
+.ie7 dl {
+    overflow: hidden;
+}
+dt,
+dd {
+    box-sizing: border-box;
+    padding: 10px;
+}
+dd ~ dt,
+dd ~ dd {
+    border-top: 1px solid #bdc8ca;
+}
+dt {
+    float: left;
+    width: 35%;
+    padding-bottom: 0;
+}
+.ie7 dt {
+    padding-bottom: 10px;
+    clear: both;
+}
+dd {
+    margin-left: 35%;
+    border-left: 1px dotted #bdc8ca;
+    background-color: #fff;
+}
+.ie7 dd {
+    margin-left: 40%;
+    overflow: hidden;
+}
+dd:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/*dt*/.row2 + dd:after {
+          content:none;
+      }
+
+.btn--block {
+    width: 100%;
+}
+.btn--green {
+    color: #fff;
+    background:#04AA6D;
+}
+.btn {
+    height: 36px;
+    font: 600 14px/1.1 'Inter', sans-serif;
+    text-decoration: none;
+    vertical-align: top;
+    transition: color .5s ease, background .5s ease, border .5s ease;
+    border-radius: 5px;
+    padding: 0 18px;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+}
+.auction_desc {
+    width: calc(60% - 38px);
+    margin: -2px 0 0 0;
+    float: right;
+}
+
+.auction_action {
+    background: #fff;
+    width: calc(30% - 5px);
+    min-height: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
+    border: 1px solid #d9dee7;
+    box-shadow: 1px 4px 7px 0 rgba(0,0,0,0.11);
+    padding: 20px 30px;
+    margin: 0 0 10px 0;
+    position: relative;
+}
+.auction_tags {
+    width: calc(60% - 5px);
+    padding: 25px 20px 15px 20px;
+}
+.auction_tags {
+    background: #fff;
+    width: calc(67.982% - 5px);
+    border: 1px solid #d9dee7;
+    box-shadow: 1px 4px 7px 0 rgba(0,0,0,0.11);
+    padding: 25px 30px 15px 30px;
+    margin: 0 0 10px 0;
+}
+
+
