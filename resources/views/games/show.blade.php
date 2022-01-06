@@ -1,3 +1,6 @@
+<?php
+use Carbon\Carbon;
+?>
 @extends('layouts.master')
 
 @section('content')
@@ -89,11 +92,47 @@
 
         <div class="auction_tags">
             <div class="items">
-                <h2 class="h5">Iki aukciono pabaigos</h2>
-                <div id="clockdiv" class="auction_time" data-until="12/17/2021 19:00:00">
-                    <span class="hours">02</span><span class="sep">val.</span>
-                    <span class="minutes">23</span><span class="sep">min.</span>
-                    <span class="seconds">26</span><span class="sep">s.</span>
+                <script>
+                    function startTimer(duration, display) {
+                        var timer = duration, m, s;
+                        setInterval(function () {
+
+                            let d = Math.floor(timer / (3600*24));
+                            let h = Math.floor(timer % (3600*24) / 3600);
+                            let m = Math.floor(timer % 3600 / 60);
+                            let s = Math.floor(timer % 60);
+
+                            let dDisplay = d > 0 ? d + (d == 1 ? " dienos, " : " dienų ") : "";
+                            let hDisplay = h < 10 ? "0" + h : h;
+                            let mDisplay = m < 10 ? "0" + m : m;
+                            let sDisplay = s < 10 ? "0" + s : s;
+
+                            display.textContent = dDisplay + hDisplay + ":" + mDisplay + ":" + sDisplay;
+
+                            if (--timer < 0) {
+                                timer = 0;
+                            }
+
+                        }, 1000);
+                    }
+                    let secdiff = <?php
+                        $now = Carbon::now();
+                        $realnow = $now->addHour(2);
+                        $timecreated = $game->created_at;
+                        $timeending = $timecreated -> copy() -> addDays($game->time);
+
+                        $secdiff =  $realnow->diffInSeconds($timeending);
+                        echo $secdiff;
+                        ?>
+
+                        window.onload = function () {
+                        var fiveMinutes = secdiff ,
+                            display = document.querySelector('#time');
+                        startTimer(fiveMinutes, display);
+                    };
+                </script>
+                <div id="clockdiv" class="auction_time">Aukcionas baigiasi už
+                    <span id="time"></span>
                 </div>
                 <div>
                     <span>Paskutinis statymas:</span>
