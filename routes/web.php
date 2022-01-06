@@ -36,7 +36,6 @@ Route::post('/bid/{id}','GamesController@bid');
 Route::get('approval', 'GamesController@approval');
 Route::get('/approve/{id}','GamesController@approve');
 
-Route::post('games/{game}/reviews', 'ReviewsController@store');
 
 Route::get('/register', 'RegistrationController@create');
 Route::post('register', 'RegistrationController@store');
