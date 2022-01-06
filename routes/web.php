@@ -31,6 +31,7 @@ Route::get('mylist', 'GamesController@showmylist');
 Route::get('/delete/{id}','GamesController@destroy');
 Route::get('/edit/{id}', 'GamesController@edit');
 Route::post('/update/{id}','GamesController@update');
+Route::post('/bid/{id}','GamesController@bid');
 
 Route::get('approval', 'GamesController@approval');
 Route::get('/approve/{id}','GamesController@approve');

@@ -104,13 +104,24 @@ class GamesController extends Controller
 
         }
 
+     public function bid(Request $request, $id)
+        {
+            $this->validate(request(), [
+                   'price' => 'required',
+              ]);
+
+            $game = Game::find($id);
+            $game->price = $request->input('price');
+            $game->save();
+
+         return view('games.show', ['game' => $game]);
+        }
+
 
     public function destroy($id)
     {
         $game = Game::find($id);
         $game->delete();
-        echo "Record deleted successfully.";
-        echo 'Click Here to go back.';
         return view('games.index', ['games' => $games]);
     }
 

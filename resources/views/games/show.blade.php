@@ -79,8 +79,6 @@ use Carbon\Carbon;
             <dd>{{ $game->vin }}</dd>
             <dt>Kilmės šalis</dt>
             <dd>{{ $game->country }}</dd>
-            <dt>Pradinė kaina</dt>
-            <dd>{{ $game->price }} €</dd>
         </dl>
 
         <div>
@@ -136,9 +134,60 @@ use Carbon\Carbon;
                 </div>
                 <div>
                     <span>Paskutinis statymas:</span>
-                    <span> 375,00 €</span>
+                    <span>{{$game->price}} €</span>
                 </div>
-                <a href="/login">Atlikti statymą</a>
+                <!-- Trigger/Open The Modal -->
+                <button class="btn btn-primary" id="myBtn">Atlikti statymą</button>
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <form action="/bid/{{ $game->id }}" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                        <div class="form-group row">
+                            <label for="priceid" class="col-sm-3 col-form-label">Statymo suma</label>
+                            <div class="col-sm-4">
+                                <input type="number" min='{{$game->price}}' name="price" class="form-control" id="bidid" placeholder="" required
+                                       value="{{ $game->price }}">
+                            </div>
+                            <div class="form-group row">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <button type="submit" class="btn btn-primary">Pastatyti</button>
+                                </div>
+                            </div>
+                        </div>
+                            @include('partials.formerrors')
+                        </form>
+                    </div>
+                </div>
+
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks the button, open the modal
+                    btn.onclick = function() {
+                        modal.style.display = "block";
+                    }
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                </script>
             </div>
         </div>
 
